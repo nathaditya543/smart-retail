@@ -1,11 +1,10 @@
 // src/Bill.js
 import React, { useState, useEffect } from 'react';
-import QRCode from 'react-qr-code'; // Importing from react-qr-code
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
 
 const Bill = () => {
     const [items, setItems] = useState([]);
-    const [showQRCode, setShowQRCode] = useState(false); // State to control QR code visibility
-    const [upiLink, setUpiLink] = useState(''); // State for UPI link
+    const navigate = useNavigate(); // Initialize navigate
 
     // Fetch data from local JSON file when the component mounts
     useEffect(() => {
@@ -27,19 +26,14 @@ const Bill = () => {
 
     const totalAmount = items.reduce((acc, item) => acc + (item.quantity * item.cost), 0);
 
-    // Function to generate UPI link
-    const generateUpiLink = () => {
+    // Function to navigate to QR code page with UPI ID and total amount
+    const handleGenerateUpiLink = () => {
         const upiId = "9998249805@axisb"; // Replace with actual UPI ID
-        const transactionNote = "Payment for items";
-        const amount = totalAmount.toFixed(2); // Format amount to 2 decimal places
-        const upiLink = `upi://pay?pa=${upiId}&am=${amount}&tn=${transactionNote}&cu=INR`;
-        
-        setUpiLink(upiLink); // Set UPI link state
-        setShowQRCode(true);  // Show QR code after generating link
+        navigate('/qrcode', { state: { upiId, totalAmount } }); // Navigate to QR code page with state
     };
 
     return (
-        <div>
+        <div className="bill-container">
             <h1>Billing System</h1>
             <table>
                 <thead>
@@ -66,15 +60,9 @@ const Bill = () => {
             </div>
 
             {/* Button to generate and display QR code */}
-            <button onClick={generateUpiLink}>Generate UPI QR Code</button>
-
-            {/* Display QR Code if showQRCode is true */}
-            {showQRCode && (
-                <div style={{ marginTop: '20px' }}>
-                    <h3>Scan to Pay:</h3>
-                    <QRCode value={upiLink} size={256} /> {/* Generate and display QR code */}
-                </div>
-            )}
+            <div className="button-container">
+                <button onClick={handleGenerateUpiLink}>Generate UPI QR Code</button>
+            </div>
         </div>
     );
 };

@@ -1,50 +1,8 @@
 [
   {
-    "barcode_id": "8901296100516",
-    "name": "Haldiram's Bhujia",
+    "barcode_id": "8908002127119",
+    "name": "Fortune Refined Oil (5L)",
     "quantity": 3,
-    "cost": 35
-  },
-  {
-    "barcode_id": "8901030399107",
-    "name": "Lay's Classic Salted",
-    "quantity": 1,
-    "cost": 20
-  },
-  {
-    "barcode_id": "8901491101776",
-    "name": "Bingo! Tedhe Medhe",
-    "quantity": 2,
-    "cost": 10
-  },
-  {
-    "barcode_id": "8906002400584",
-    "name": "Sunfeast Dark Fantasy Choco Fills",
-    "quantity": 1,
-    "cost": 30
-  },
-  {
-    "barcode_id": "8906000256435",
-    "name": "Britannia Bourbon Biscuits",
-    "quantity": 1,
-    "cost": 30
-  },
-  {
-    "barcode_id": "8904004400052",
-    "name": "Tata Salt (1kg)",
-    "quantity": 1,
-    "cost": 20
-  },
-  {
-    "barcode_id": "8901030696459",
-    "name": "Sunfeast Yippee Noodles",
-    "quantity": 1,
-    "cost": 15
-  },
-  {
-    "barcode_id": "8906002242009",
-    "name": "Cadbury Dairy Milk (13g)",
-    "quantity": 3,
-    "cost": 10
+    "cost": 780
   }
 ]
