@@ -8,9 +8,8 @@ import './ContentGenerator.css';
 const ContentGenerator = () => {
     const [lastItem, setLastItem] = useState(null);
     const [generatedContent, setGeneratedContent] = useState('');
-    const genAI = new GoogleGenerativeAI(`${process.env.GEMINI_API_KEY}`);
+    const genAI = new GoogleGenerativeAI(`${process.env.REACT_APP_GEMINI_API_KEY}`);
     const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
-
     const formatNutritionalInfo = (text) => {
         return text
             .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
@@ -74,7 +73,7 @@ const ContentGenerator = () => {
         if (lastItem) {
             generateContent(lastItem.name);
         }
-    }, [lastItem]);
+    });
 
     return (
         <div className="content-generator">
