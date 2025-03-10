@@ -1,6 +1,6 @@
 // src/AISummary.js
 import React from 'react';
-import ContentGenerator from './ContentGenerator'; // Import the ContentGenerator component
+import ContentGenerator from './ContentGenerator.js'; // Import the ContentGenerator component
 
 const AISummary = () => {
     return (

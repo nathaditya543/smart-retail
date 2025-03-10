@@ -1,21 +1,20 @@
 // src/Bill.js
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
+import { useNavigate } from 'react-router-dom'; // No need to import Link anymore
 
 const Bill = () => {
     const [items, setItems] = useState([]);
-    const navigate = useNavigate(); // Initialize navigate
+    const navigate = useNavigate();
 
-    // Fetch data from local JSON file when the component mounts
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('/data.json'); // Path to the JSON file
+                const response = await fetch('/data.json');
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
                 const jsonData = await response.json();
-                setItems(jsonData); // Set items state with fetched data
+                setItems(jsonData);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -26,10 +25,9 @@ const Bill = () => {
 
     const totalAmount = items.reduce((acc, item) => acc + (item.quantity * item.cost), 0);
 
-    // Function to navigate to QR code page with UPI ID and total amount
     const handleGenerateUpiLink = () => {
-        const upiId = "9998249805@axisb"; // Replace with actual UPI ID
-        navigate('/qrcode', { state: { upiId, totalAmount } }); // Navigate to QR code page with state
+        const upiId = "9998249805@axisb";
+        navigate('/qrcode', { state: { upiId, totalAmount } });
     };
 
     return (
@@ -50,7 +48,7 @@ const Bill = () => {
                             <td>{item.name}</td>
                             <td>{item.quantity}</td>
                             <td>{item.cost}</td>
-                            <td>{(item.quantity * item.cost).toFixed(2)}</td> {/* Calculate total cost for display */}
+                            <td>{(item.quantity * item.cost).toFixed(2)}</td>
                         </tr>
                     ))}
                 </tbody>
@@ -59,9 +57,12 @@ const Bill = () => {
                 <h3>Total Amount: ₹{totalAmount.toFixed(2)}</h3>
             </div>
 
-            {/* Button to generate and display QR code */}
+            {/* Button container with aligned buttons */}
             <div className="button-container">
-                <button onClick={handleGenerateUpiLink}>Generate UPI QR Code</button>
+                <button className="button" onClick={handleGenerateUpiLink}>Generate UPI QR Code</button>
+                <a href="/ai-summary" target="_blank" rel="noopener noreferrer">
+                    <button className="button">Go to AI Summary</button>
+                </a>
             </div>
         </div>
     );

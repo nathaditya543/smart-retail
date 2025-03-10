@@ -1,8 +1,41 @@
 [
   {
-    "barcode_id": "8908002127119",
-    "name": "Fortune Refined Oil (5L)",
-    "quantity": 3,
-    "cost": 780
+    "barcode_id": "8906000257777",
+    "name": "Amul Dark Chocolate",
+    "quantity": 1,
+    "cost": 100,
+    "proteins": "8g",
+    "carbs": "45g",
+    "fats": "40g",
+    "allergens": [
+      "Milk",
+      "Soy"
+    ]
+  },
+  {
+    "barcode_id": "8901063013704",
+    "name": "Parle-G Biscuits",
+    "quantity": 1,
+    "cost": 5,
+    "proteins": "4g",
+    "carbs": "70g",
+    "fats": "20g",
+    "allergens": [
+      "Gluten",
+      "Milk"
+    ]
+  },
+  {
+    "barcode_id": "8901030696459",
+    "name": "Sunfeast Yippee Noodles",
+    "quantity": 1,
+    "cost": 15,
+    "proteins": "6g",
+    "carbs": "65g",
+    "fats": "12g",
+    "allergens": [
+      "Gluten",
+      "Soy"
+    ]
   }
 ]
